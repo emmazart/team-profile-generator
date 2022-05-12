@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const managerQuestions = require('./src/managerQuestions');
 const questions = require('./src/questions');
 const generateHtml = require('./utils/generateHtml');
 
@@ -7,9 +8,6 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
-
-
 
 // create a function to write an html file
 function writeToFile(data) {
@@ -25,12 +23,18 @@ function writeToFile(data) {
 // define init function
 function init() {
     inquirer // on init, run inquirer prompt
-        .prompt(questions)
+        .prompt(managerQuestions)
         .then(function(answer) { // then handle the response
-            console.log(answer); 
-            // writeToFile(generateHtml(answer)); // send response to html file
-        });
+            console.log(answer)
+            writeToFile(generateHtml(answer)); // send response to html file
 
+            inquirer.prompt(questions)
+            .then(function(answer) {
+                console.log(answer)
+                writeToFile(generateHtml(answer)); // send response to html file
+            })
+    
+        })
 };
 
 // initialize app call

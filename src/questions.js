@@ -1,10 +1,39 @@
 // Create an array of questions for user input
 const questionsArr = [
+    // adding additional team members
+    {
+        name: 'confirmEmployee',
+        message: 'Would you like to add another team member?',
+        type: 'confirm',
+        default: true
+    },
+    {
+        name: 'typeofEmployee',
+        message: 'Please select the type of employee: (Required)',
+        type: 'rawlist', 
+        choices: ['Engineer', 'Manager', 'Intern'],
+        default: 0,
+        when: ({ confirmEmployee }) => {
+            if (confirmEmployee) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }, 
+
     // first three questions run for all employees
     {
         name: 'name',
         message: "Please input your employee's first name: (Required)",
         type: 'input',
+        when: ({ confirmEmployee }) => {
+            if (confirmEmployee) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         validate: nameInput => {
             if (nameInput) {
                 return true;
@@ -15,9 +44,36 @@ const questionsArr = [
         }
     },
     {
+        name: 'id',
+        message: 'Enter an employee ID: (Required)',
+        type: 'input',
+        when: ({ confirmEmployee }) => {
+            if (confirmEmployee) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: idInput => {
+            if (idInput) {
+                return true;
+            } else {
+                console.log("Please enter a valid ID.")
+                return false;
+            }
+        }
+    },
+    {
         name: 'email', 
         message: "What is the employee's email address? (Required)",
         type: 'input',
+        when: ({ confirmEmployee }) => {
+            if (confirmEmployee) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         validate: emailInput => {
             if (emailInput) {
                 return true;
@@ -27,13 +83,6 @@ const questionsArr = [
             }
         }
     },
-    {
-        name: 'typeofEmployee',
-        message: 'Please select the type of employee: (Required)',
-        type: 'rawlist', 
-        choices: ['Engineer', 'Manager', 'Intern'],
-        default: 0,
-    }, 
     {
         // this question runs only when the engineer employee type is selected
         name: 'github',
@@ -49,7 +98,7 @@ const questionsArr = [
     }, 
     {
         // this question runs only when the intern employee type is selected
-        name: 'github',
+        name: 'school',
         message: "What is the intern's school?",
         type: 'input', 
         when: ({ typeofEmployee }) => {
@@ -62,7 +111,7 @@ const questionsArr = [
     },
     {
         // this question runs only when the manager employee type is selected
-        name: 'github',
+        name: 'office',
         message: "What is the manager's office number?",
         type: 'input', 
         when: ({ typeofEmployee }) => {
