@@ -14,9 +14,35 @@ test('creates new employee object', () => {
 test('generate new and unique employee id', () => {
     const employee = new Employee('Anna', 'emma.olson794@gmail.com');
     employee.generateEmployeeId();
-    expect(employee.id).toEqual(expect.any(Number));
-    console.log(employee);
+    let employeeArray = [];
+
+    if (employeeArray.length === 0) {
+        expect(employee.id).toEqual(1);
+    }
 });
+
+// // test generating of employee id based on array length
+// test('generate new and unique employee id if array = 1', () => {
+//     const employee = new Employee('Anna', 'emma.olson794@gmail.com');
+//     employee.generateEmployeeId();
+//     let employeeArray = ['firstemployee'];
+
+//     if (employeeArray.length === 1) {
+//         expect(employee.id).toEqual(2);
+//     }
+// });
+
+// // test generating of employee id based on array length
+// test('generate new and unique employee id if array = 2', () => {
+//     const employee = new Employee('Anna', 'emma.olson794@gmail.com');
+//     employee.generateEmployeeId();
+//     let employeeArray = ['firstemployee', 'secondemployee'];
+
+//     if (employeeArray.length === 2) {
+//         expect(employee.id).toEqual(3);
+//     }
+// });
+
 
 // test pushing new employee object to the array
 test('new employee object added to employeesArray', () => {
