@@ -28,7 +28,7 @@ function init() {
         .prompt(questions)
         .then(function(answer) { // then handle the response
             console.log(answer); 
-            writeToFile(generateHtml(answer)); // send response to html file
+            // writeToFile(generateHtml(answer)); // send response to html file
         });
 
 };
