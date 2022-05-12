@@ -2,11 +2,16 @@ const Manager = require('../lib/Manager');
 
 // test creation of new employee with name and email
 test('creates new manager object', () => {
-    const manager = new Manager('Anna', 'emma.olson794@gmail.com', 1);
+    const manager = new Manager('Anna', 'emma.olson794@gmail.com', 1, 2);
 
     expect(manager.name).toBe('Anna');
     expect(manager.email).toBe('emma.olson794@gmail.com');
-    expect(manager.office).toEqual(expect.any(Number));
+    expect(manager.id).toBe(1);
+    expect(manager.officeNumber).toBe(2);
+});
 
-    console.log(manager);
+test('getrole returns manager', () => {
+    const manager = new Manager('Anna', 'emma.olson794@gmail.com', 1, 2);
+
+    expect(manager.getRole()).toBe('Manager');
 });
