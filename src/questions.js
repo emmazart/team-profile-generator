@@ -2,24 +2,11 @@
 const questionsArr = [
     // adding additional team members
     {
-        name: 'confirmEmployee',
-        message: 'Would you like to add another team member?',
-        type: 'confirm',
-        default: true
-    },
-    {
         name: 'typeofEmployee',
         message: 'Please select the type of employee: (Required)',
         type: 'rawlist', 
-        choices: ['Engineer', 'Manager', 'Intern'],
-        default: 0,
-        when: ({ confirmEmployee }) => {
-            if (confirmEmployee) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        choices: ['Engineer','Intern', 'Manager'],
+        default: 0
     }, 
 
     // first three questions run for all employees
@@ -27,13 +14,6 @@ const questionsArr = [
         name: 'name',
         message: "Please input your employee's first name: (Required)",
         type: 'input',
-        when: ({ confirmEmployee }) => {
-            if (confirmEmployee) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         validate: nameInput => {
             if (nameInput) {
                 return true;
@@ -47,13 +27,6 @@ const questionsArr = [
         name: 'id',
         message: 'Enter an employee ID: (Required)',
         type: 'input',
-        when: ({ confirmEmployee }) => {
-            if (confirmEmployee) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         validate: idInput => {
             if (idInput) {
                 return true;
@@ -67,13 +40,6 @@ const questionsArr = [
         name: 'email', 
         message: "What is the employee's email address? (Required)",
         type: 'input',
-        when: ({ confirmEmployee }) => {
-            if (confirmEmployee) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         validate: emailInput => {
             if (emailInput) {
                 return true;
