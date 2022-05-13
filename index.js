@@ -9,6 +9,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+
 const employeesArray = [];
 
 
@@ -21,71 +22,67 @@ function writeToFile(data) {
     });
 };
 
-const confirmAddEmployee = () => {
-    return {
+// prompt for confirming if user wants another employee
+const confirmAddEmployee = {
         name: 'confirmAddEmployee',
         message: 'Would you like to add another team member?',
         type: 'confirm',
         default: true
-    }
 };
 
-// define init as async function?
-async function init() {
-    // inquirer prompt managerQuestions
-    const getManager = await inquirer.prompt(managerQuestions)
-    // resolve initial promise, package, and send to array
-    console.log(getManager);
+// define function for adding more employees
+function addEmployee() {
 
-    // START WHILE LOOP?
-    
-    // ask user if they want to add another employee
-    const getConfirm = await inquirer.prompt(confirmAddEmployee())
-    // if yes, run questions array
-    if (getConfirm) {
-        console.log("adding new employee")
-        const newEmployee = await inquirer.prompt(questions);
-        console.log(newEmployee);
-        // package up response?
-        // re run confirmation?
-    } else {
-        // send array to generatehtml?
-        console.log("all done");
-    }
+    // prompt user to select if they want another employee or not
+    inquirer.prompt(confirmAddEmployee)
+    .then((choice) => {
+        switch (choice.confirmAddEmployee) {
+            // if yes, run employee prompt questions
+            case true:
+                inquirer.prompt(questions)
+                .then((answer) => {
+                    console.log(answer);
 
+                    // depending on the type of employee selected, create new employee objects
+                    if (answer.typeofEmployee === 'Engineer'){
+                        const engineer = new Engineer(answer.name, answer.email, answer.id, answer.github);
+                        employeesArray.push(engineer);
+                    }
+
+                    if (answer.typeofEmployee === 'Intern'){
+                        const intern = new Intern(answer.name, answer.email, answer.id, answer.school);
+                        employeesArray.push(intern);
+                    }
+
+                    if (answer.typeofEmployee === 'Manager'){
+                        const manager = new Manager(answer.name, answer.email, answer.id, answer.office);
+                        employeesArray.push(manager);
+                    }
+
+                    // callback function for addEmployee to rerun the confirm prompt
+                    addEmployee();
+                })
+                break;
+            // if no, send full employeesArray to generateHtml function
+            case false:
+                writeToFile(generateHtml(employeesArray)); // send response to html file
+                break;
+        }
+    })
 };
-// 
-
 
 // define init function
-// function init() {
-//     inquirer // on init, run inquirer prompt
-//         .prompt(managerQuestions)
-//         .then(function(answer) { // then handle the response
-//             const manager = new Manager(answer.name, answer.email, answer.id, answer.office);
-//             employeesArray.push(manager);
+function init() {
+    // inquirer prompt managerQuestions
+    inquirer.prompt(managerQuestions)
+    // create new manager object using answer data
+    .then((answer) => {
+        const manager = new Manager(answer.name, answer.email, answer.id, answer.office);
+        employeesArray.push(manager); // add new manager to employeesArray
+        addEmployee(); // call function to handle adding additional employees
+    })
 
-//             inquirer.prompt(questions)
-//             .then(function(answer) {
-
-//                 if (answer.typeofEmployee === 'Engineer'){
-//                     const engineer = new Engineer(answer.name, answer.email, answer.id, answer.github);
-//                     employeesArray.push(engineer);
-//                     console.log(employeesArray);
-//                 }
-
-//                 if (answer.typeofEmployee === 'Intern'){
-//                     const intern = new Intern(answer.name, answer.email, answer.id, answer.school);
-//                     employeesArray.push(intern);
-//                 }
-
-//                 // pass employeesArray to generateHTML 
-//                 writeToFile(generateHtml(employeesArray)); // send response to html file
-//                 // generateHtml(employeesArray);
-//             })
-    
-//         })
-// };
+};
 
 // initialize app call
 init();
