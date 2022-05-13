@@ -1,4 +1,30 @@
 const generateHtml = function(data) {
+    console.log(data);
+
+    let employeeCards = `
+    <div>
+        <h2>${data[0].name}</h2>
+        <h3>Manager</h3>
+        <p>${data[0].id}</p>
+        <p>${data[0].email}</p>
+        <p>${data[0].officeNumber}</p>
+    </div>
+    `;
+
+    for (i = 1; i < data.length; i++) {
+      if (data[i].officeNumber){
+          employeeCards += ` \n
+          <div>
+            <h2>${data[0].name}</h2>
+            <h3>Manager</h3>
+            <p>${data[0].id}</p>
+            <p>${data[0].email}</p>
+            <p>${data[0].officeNumber}</p>
+          </div>
+          `
+      };  
+    };
+
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -14,11 +40,9 @@ const generateHtml = function(data) {
         </header>
 
         <main>
-            <h2>${data.name}</h2>
-            <h3>${data.typeofEmployee}</h3>
-            <p>${data.id}</p>
-            <p>${data.email}</p>
-            <p>${data.github}</p>
+
+            ${employeeCards};
+
         </main>
 
     </body>

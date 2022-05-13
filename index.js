@@ -9,6 +9,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const employeesArray = [];
 
 
 // create a function to write an html file
@@ -21,29 +22,31 @@ function writeToFile(data) {
 };
 
 
-
 // define init function
 function init() {
     inquirer // on init, run inquirer prompt
         .prompt(managerQuestions)
         .then(function(answer) { // then handle the response
             const manager = new Manager(answer.name, answer.email, answer.id, answer.office);
-            console.log(manager);
+            employeesArray.push(manager);
 
             inquirer.prompt(questions)
             .then(function(answer) {
 
                 if (answer.typeofEmployee === 'Engineer'){
                     const engineer = new Engineer(answer.name, answer.email, answer.id, answer.github);
-                    console.log(engineer);
+                    employeesArray.push(engineer);
+                    console.log(employeesArray);
                 }
 
                 if (answer.typeofEmployee === 'Intern'){
                     const intern = new Intern(answer.name, answer.email, answer.id, answer.school);
-                    console.log(intern);
+                    employeesArray.push(intern);
                 }
 
-                // writeToFile(generateHtml(answer)); // send response to html file
+                // pass employeesArray to generateHTML 
+                writeToFile(generateHtml(employeesArray)); // send response to html file
+                // generateHtml(employeesArray);
             })
     
         })
