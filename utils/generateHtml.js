@@ -39,10 +39,10 @@ const generateHtml = function(data) {
     }
 
     const HTML = [];
-    html.push(data.filter(employee => employee.getRole() === "Manager").map(manager => generateManager(manager)));
-    html.push(data.filter(employee => employee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
-    html.push(data.filter(employee => employee.getRole() === "Intern").map(intern => generateIntern(intern)));
-    html.join("");
+    HTML.push(data.filter(employee => employee.getRole() === "Manager").map(manager => generateManager(manager)));
+    HTML.push(data.filter(employee => employee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
+    HTML.push(data.filter(employee => employee.getRole() === "Intern").map(intern => generateIntern(intern)));
+    HTML.join("");
 
     return `
     <!DOCTYPE html>
