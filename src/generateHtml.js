@@ -1,7 +1,7 @@
 const generateHtml = function(data) {
-    console.log(data);
+    const HTML = [];
 
-
+    // function creates html for manager employee role
     const generateManager = manager => {
         return `
         <div class="col-4">
@@ -22,6 +22,7 @@ const generateHtml = function(data) {
         `
     }
 
+    // function creates html for engineer employee role
     const generateEngineer = engineer => {
         return `
         <div class="col-4">
@@ -34,7 +35,7 @@ const generateHtml = function(data) {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">Github: <a href="https://github.com/${engineer.github}">${engineer.github}<a/></li>
+                    <li class="list-group-item">Github: <a href="https://github.com/${engineer.github}" target="_blank" rel="noopener noreferrer">${engineer.github}<a/></li>
                 </ul>
             </div>
         </div>
@@ -42,6 +43,7 @@ const generateHtml = function(data) {
         `
     }
 
+    // function creates html for intern employee role
     const generateIntern = intern => {
         return `
         <div class="col-4">
@@ -62,11 +64,14 @@ const generateHtml = function(data) {
         `
     }
 
-    const HTML = [];
-    HTML.push(data.filter(employee => employee.getRole() === "Manager").map(manager => generateManager(manager)));
-    HTML.push(data.filter(employee => employee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
-    HTML.push(data.filter(employee => employee.getRole() === "Intern").map(intern => generateIntern(intern)));
-    HTML.join("");
+    // sort data by employee role & map each instance through the appropraite generate function, push each block of returned html to the HTML array
+    function joinHTML(HTML) {
+        HTML.push(data.filter(employee => employee.getRole() === "Manager").map(manager => generateManager(manager)));
+        HTML.push(data.filter(employee => employee.getRole() === "Engineer").map(engineer => generateEngineer(engineer)));
+        HTML.push(data.filter(employee => employee.getRole() === "Intern").map(intern => generateIntern(intern)));
+
+        return HTML.join(''); // join HTML array to remove commas & return it for use below
+    }
 
     return `
     <!DOCTYPE html>
@@ -86,7 +91,7 @@ const generateHtml = function(data) {
 
         <main class="row p-2 justify-content-center">
 
-            ${HTML}
+            ${joinHTML(HTML)}
 
         </main>
 

@@ -4,7 +4,6 @@ const managerQuestions = require('./src/managerQuestions');
 const questions = require('./src/questions');
 const generateHtml = require('./src/generateHtml');
 
-const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -25,7 +24,7 @@ function writeToFile(data) {
 // prompt for confirming if user wants another employee
 const confirmAddEmployee = {
         name: 'confirmAddEmployee',
-        message: 'Would you like to add another team member?',
+        message: 'Would you like to add another team member? (If you are finished building your team, enter "N".)',
         type: 'confirm',
         default: true
 };
