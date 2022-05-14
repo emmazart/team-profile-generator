@@ -4,36 +4,60 @@ const generateHtml = function(data) {
 
     const generateManager = manager => {
         return `
-        <div>
-            <h2>${manager.getName()}</h2>
-            <h3>Manager</h3>
-            <p>${manager.getId()}</p>
-            <p>${manager.getEmail()}</p>
-            <p>${manager.officeNumber}</p>
+        <div class="col">
+        <div class="card">
+            <div class="card-body shadow">
+                <div class="card-header bg-primary">
+                    <h2 class="card-title text-white">${manager.getName()}</h2>
+                    <h3 class="card-subtitle text-white"><i class="bi bi-clipboard-check-fill"></i> Manager</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${manager.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li class="list-group-item">Office number: ${manager.officeNumber}</li>
+                </ul>
+            </div>
+        </div>
         </div>
         `
     }
 
     const generateEngineer = engineer => {
         return `
-        <div>
-            <h2>${engineer.getName()}</h2>
-            <h3>Manager</h3>
-            <p>${engineer.getId()}</p>
-            <p>${engineer.getEmail()}</p>
-            <p>${engineer.github}</p>
+        <div class="col">
+        <div class="card">
+            <div class="card-body shadow">
+                <div class="card-header bg-primary">
+                    <h2 class="card-title text-white">${engineer.getName()}</h2>
+                    <h3 class="card-subtitle text-white"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${engineer.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                    <li class="list-group-item">Github: ${engineer.github}</li>
+                </ul>
+            </div>
+        </div>
         </div>
         `
     }
 
     const generateIntern = intern => {
         return `
-        <div>
-            <h2>${intern.getName()}</h2>
-            <h3>Manager</h3>
-            <p>${intern.getId()}</p>
-            <p>${intern.getEmail()}</p>
-            <p>${intern.school}</p>
+        <div class="col">
+        <div class="card">
+            <div class="card-body shadow">
+                <div class="card-header bg-primary">
+                    <h2 class="card-title text-white">${intern.getName()}</h2>
+                    <h3 class="card-subtitle text-white"><i class="bi bi-mortarboard-fill"></i> Intern</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                    <li class="list-group-item">School: ${intern.school}</li>
+                </ul>
+            </div>
+        </div>
         </div>
         `
     }
@@ -51,14 +75,16 @@ const generateHtml = function(data) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
         <title>Team Profile</title>
     </head>
     <body>
-        <header>
+        <header class="text-center p-3 bg-danger text-white">
             <h1>My Team</h1>
         </header>
 
-        <main>
+        <main class="row p-2">
 
             ${HTML}
 
