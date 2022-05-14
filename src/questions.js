@@ -1,6 +1,8 @@
 // Create an array of questions for user input
+// This questionsArr is called for each instance of the addEmployee()
+
 const questionsArr = [
-    // adding additional team members
+    // select the type of employee user would like to add
     {
         name: 'typeofEmployee',
         message: 'Please select the type of employee: (Required)',

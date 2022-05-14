@@ -1,5 +1,5 @@
+// this array only runs for the first inquirer.prompt inside the init() definition
 const managerQuestions = [
-    
         {
             name: 'name',
             message: "Please input your Manager's first name: (Required)",

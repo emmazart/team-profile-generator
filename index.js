@@ -8,7 +8,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-
+// each new employee will get pushed to this empty array
 const employeesArray = [];
 
 
@@ -21,7 +21,7 @@ function writeToFile(data) {
     });
 };
 
-// prompt for confirming if user wants another employee
+// prompt for confirming if user wants to add another employee and continue the loop
 const confirmAddEmployee = {
         name: 'confirmAddEmployee',
         message: 'Would you like to add another team member? (If you are finished building your team, enter "N".)',
@@ -42,7 +42,7 @@ function addEmployee() {
                 .then((answer) => {
                     console.log(answer);
 
-                    // depending on the type of employee selected, create new employee objects
+                    // depending on the type of employee selected, create new employee objects & push to employeesArray
                     if (answer.typeofEmployee === 'Engineer'){
                         const engineer = new Engineer(answer.name, answer.email, answer.id, answer.github);
                         employeesArray.push(engineer);
@@ -64,7 +64,7 @@ function addEmployee() {
                 break;
             // if no, send full employeesArray to generateHtml function
             case false:
-                writeToFile(generateHtml(employeesArray)); // send response to html file
+                writeToFile(generateHtml(employeesArray)); // pass employeesArray to generateHtml, and send the returned data to writeToFile
                 break;
         }
     })
@@ -72,7 +72,7 @@ function addEmployee() {
 
 // define init function
 function init() {
-    // inquirer prompt managerQuestions
+    // inquirer prompt managerQuestions (has user enter a required manager)
     inquirer.prompt(managerQuestions)
     // create new manager object using answer data
     .then((answer) => {

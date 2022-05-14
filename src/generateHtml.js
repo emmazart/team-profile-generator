@@ -1,3 +1,4 @@
+// defining generateHtml & passing in employeesArray as data
 const generateHtml = function(data) {
     const HTML = [];
 
@@ -73,6 +74,7 @@ const generateHtml = function(data) {
         return HTML.join(''); // join HTML array to remove commas & return it for use below
     }
 
+    // main return for the generateHtml function & what gets passed to write file in index.js
     return `
     <!DOCTYPE html>
     <html lang="en">
