@@ -4,8 +4,8 @@ const generateHtml = function(data) {
 
     const generateManager = manager => {
         return `
-        <div class="col">
-        <div class="card">
+        <div class="col-4">
+        <div class="card m-2" style="max-width: 20rem;">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${manager.getName()}</h2>
@@ -24,8 +24,8 @@ const generateHtml = function(data) {
 
     const generateEngineer = engineer => {
         return `
-        <div class="col">
-        <div class="card">
+        <div class="col-4">
+        <div class="card m-2" style="max-width: 20rem;">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${engineer.getName()}</h2>
@@ -44,8 +44,8 @@ const generateHtml = function(data) {
 
     const generateIntern = intern => {
         return `
-        <div class="col">
-        <div class="card">
+        <div class="col-4">
+        <div class="card m-2" style="max-width: 20rem;">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${intern.getName()}</h2>
@@ -84,7 +84,7 @@ const generateHtml = function(data) {
             <h1>My Team</h1>
         </header>
 
-        <main class="row p-2">
+        <main class="row p-2 justify-content-center">
 
             ${HTML}
 
