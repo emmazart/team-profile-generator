@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const managerQuestions = require('./src/managerQuestions');
 const questions = require('./src/questions');
-const generateHtml = require('./utils/generateHtml');
+const generateHtml = require('./src/generateHtml');
 
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');

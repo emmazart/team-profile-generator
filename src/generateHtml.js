@@ -5,7 +5,7 @@ const generateHtml = function(data) {
     const generateManager = manager => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem;">
+        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${manager.getName()}</h2>
@@ -25,7 +25,7 @@ const generateHtml = function(data) {
     const generateEngineer = engineer => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem;">
+        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${engineer.getName()}</h2>
@@ -34,7 +34,7 @@ const generateHtml = function(data) {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                    <li class="list-group-item">Github: ${engineer.github}</li>
+                    <li class="list-group-item">Github: <a href="https://github.com/${engineer.github}">${engineer.github}<a/></li>
                 </ul>
             </div>
         </div>
@@ -45,7 +45,7 @@ const generateHtml = function(data) {
     const generateIntern = intern => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem;">
+        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
             <div class="card-body shadow">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${intern.getName()}</h2>
