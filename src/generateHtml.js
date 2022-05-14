@@ -5,12 +5,12 @@ const generateHtml = function(data) {
     const generateManager = manager => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
-            <div class="card-body shadow">
+        <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${manager.getName()}</h2>
                     <h3 class="card-subtitle text-white"><i class="bi bi-clipboard-check-fill"></i> Manager</h3>
                 </div>
+                <div class="card-body bg-light border border-light">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${manager.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
@@ -26,12 +26,12 @@ const generateHtml = function(data) {
     const generateEngineer = engineer => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
-            <div class="card-body shadow">
+        <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${engineer.getName()}</h2>
                     <h3 class="card-subtitle text-white"><i class="bi bi-eyeglasses"></i> Engineer</h3>
                 </div>
+                <div class="card-body bg-light border border-light">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
@@ -47,12 +47,12 @@ const generateHtml = function(data) {
     const generateIntern = intern => {
         return `
         <div class="col-4">
-        <div class="card m-2" style="max-width: 20rem; min-height: 22rem">
-            <div class="card-body shadow">
+        <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${intern.getName()}</h2>
                     <h3 class="card-subtitle text-white"><i class="bi bi-mortarboard-fill"></i> Intern</h3>
                 </div>
+                <div class="card-body bg-light border border-light">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${intern.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
