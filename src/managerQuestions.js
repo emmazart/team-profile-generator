@@ -21,7 +21,7 @@ const managerQuestions = [
                 if (idInput) {
                     return true;
                 } else {
-                    console.log("Please enter a valid ID.")
+                    console.log("Please enter a valid ID Number.")
                     return false;
                 }
             }
