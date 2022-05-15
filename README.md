@@ -19,12 +19,10 @@ This is a command line application. There is no live deployment & users must fol
 The user-generated index.html file will be written to ./dist/index.html.
 
 To invoke the application, navigate to the root in your command line and run node index.js.
-This application utilizes Bootstrap styling via the cdn link in index.html.
 
 ### Installation & Testing
 To utilize this application, clone the repository to your local machine & run the command npm install in your command line interface to install the necessary dependencies.
 
-Project dependencies: Inquirer & Jest
 All test files are located in the tests directory. Use npm run test to run all test suites. All test suites pass.
 
 ### Code Summary
@@ -40,6 +38,14 @@ If false, employeesArray is passed to a generateHtml function, the result of whi
 
 writeToFile() handles the returned html code block and performs fs.writeFile() to the predetermined location.
 
+### Technologies Used
+- Javascript
+- Node.js
+- Bootstrap (via CDN)
+
+Project dependencies: Inquirer & Jest
+
+
 ### File Structure
 
 Demonstration of the Repository File Structure:
@@ -47,7 +53,6 @@ Demonstration of the Repository File Structure:
 
 ## Deployed Application
 
-![(Link to Walkthrough Video)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
+![(Link to Walkthrough Video on Google Drive)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
 
-Screenshots?
-![alt text](filepath)
+The index.html file generated in the demo video can be viewed ![(here in the dist folder.)](https://github.com/emmazart/team-profile-generator/blob/main/dist/index.html)
