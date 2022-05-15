@@ -5,7 +5,7 @@ const generateHtml = function(data) {
     // function creates html for manager employee role
     const generateManager = manager => {
         return `
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
         <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${manager.getName()}</h2>
@@ -26,7 +26,7 @@ const generateHtml = function(data) {
     // function creates html for engineer employee role
     const generateEngineer = engineer => {
         return `
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
         <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${engineer.getName()}</h2>
@@ -47,7 +47,7 @@ const generateHtml = function(data) {
     // function creates html for intern employee role
     const generateIntern = intern => {
         return `
-        <div class="col-4">
+        <div class="col-12 col-sm-4">
         <div class="card m-2 shadow" style="max-width: 20rem; min-height: 22rem">
                 <div class="card-header bg-primary">
                     <h2 class="card-title text-white">${intern.getName()}</h2>

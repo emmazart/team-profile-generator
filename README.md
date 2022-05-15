@@ -19,6 +19,7 @@ This is a command line application. There is no live deployment & users must fol
 The user-generated index.html file will be written to ./dist/index.html.
 
 To invoke the application, navigate to the root in your command line and run node index.js.
+This application utilizes Bootstrap styling via the cdn link in index.html.
 
 ### Installation & Testing
 To utilize this application, clone the repository to your local machine & run the command npm install in your command line interface to install the necessary dependencies.
@@ -46,7 +47,7 @@ Demonstration of the Repository File Structure:
 
 ## Deployed Application
 
-![(Link to Walkthrough Video)]()
+![(Link to Walkthrough Video)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
 
 Screenshots?
 ![alt text](filepath)
