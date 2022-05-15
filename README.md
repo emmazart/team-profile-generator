@@ -53,6 +53,6 @@ Demonstration of the Repository File Structure:
 
 ## Deployed Application
 
-[(Link to Walkthrough Video on Google Drive)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
+[Link to Walkthrough Video on Google Drive](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
 
-The index.html file generated in the demo video can be viewed [(here in the dist folder.)](https://github.com/emmazart/team-profile-generator/blob/main/dist/index.html)
+The index.html file generated in the demo video can be viewed [here in the dist folder.](https://github.com/emmazart/team-profile-generator/blob/main/dist/index.html)
