@@ -49,10 +49,10 @@ Project dependencies: Inquirer & Jest
 ### File Structure
 
 Demonstration of the Repository File Structure:
-[Directory File Structure](./assets/images/file-structure-screenshot.png)
+![(Directory File Structure)](./assets/images/file-structure-screenshot.png)
 
 ## Deployed Application
 
-![(Link to Walkthrough Video on Google Drive)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
+[(Link to Walkthrough Video on Google Drive)](https://drive.google.com/file/d/1b224PR06GINjzeBfeDvPsogDqC-prhZU/view)
 
-The index.html file generated in the demo video can be viewed ![(here in the dist folder.)](https://github.com/emmazart/team-profile-generator/blob/main/dist/index.html)
+The index.html file generated in the demo video can be viewed [(here in the dist folder.)](https://github.com/emmazart/team-profile-generator/blob/main/dist/index.html)
